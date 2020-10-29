@@ -1,6 +1,7 @@
 #push
 from flask import Flask
 from flask import jsonify
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -19,6 +20,14 @@ def bob():
     val = {"value": "bob"}
     return jsonify(val)
 
+@app.route('/pandas')
+def pandas_suger():
+    df= pd.read_csv("https://raw.githubusercontent.com/noahgift/sugar/master/data/education_sugar_cdc_2003.csv")
+    return jsonify(df.to_dict())
+
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
+    
+    
+   
