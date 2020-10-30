@@ -1,12 +1,24 @@
 
-from locust import HttpUser, TaskSet, between
+from locust import HttpUser, User, task
 
-def index(l):
-    l.client.get("/bob")
 
-class UserBehavior(TaskSet):
-    tasks = {index: 1}
+class UserBehavior(User):
+    def on_start(self):
+        """ on_start is called when a Locust start before any task is scheduled """
+        print('start')
+
+    @task
+    def index(self):
+        self.client.get("/")
+
+    
+
 
 class WebsiteUser(HttpUser):
-    task_set = UserBehavior
-    wait_time = between(5.0, 9.0)
+    tasks = [UserBehavior]
+    min_wait = 1
+    max_wait = 3
+
+if __name__ == "__main__":
+    import os
+    os.system("locust -f locustfile.py")
