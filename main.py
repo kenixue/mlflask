@@ -99,17 +99,7 @@ def prediction():
         prediction_result.loc[i+1]=[(i + 1) * step, evaluation_result['accuracy'], evaluation_result['average_loss']]
     return jsonify(prediction_result.to_dict())
 
-    '''
-    with open('training-log.csv', 'w') as stream:
-        csvwriter = csv.writer(stream)
-        step = 10
-        for i in range(0, 10):
-            model.train(input_fn=train_input_fn, steps=step)
-            evaluation_result = model.evaluate(input_fn=test_input_fn)
-
-            # predictions = list(model.predict(input_fn=test_input_fn))
-
-            csvwriter.writerow([(i + 1) * step, evaluation_result['accuracy'], evaluation_result['average_loss']])'''
+   
 
 
 @app.route('/')
