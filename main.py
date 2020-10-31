@@ -6,6 +6,10 @@ import dataset
 import tensorflow as tf
 import numpy as np
 import csv
+import plotly.figure_factory as ff
+import plotly.express as px
+import plotly as py
+import plotly.graph_objs as go
 
 app = Flask(__name__)
 TRAINING_SET_FRACTION = 0.95
@@ -31,6 +35,11 @@ def train_input_fn():
     features = train_features
     labels = train_labels
     return features, labels
+
+heart_data = pd.read_csv('data/heart.csv')
+heart_data.head()
+
+    
 
 @app.route('/prediction')
 def prediction():
