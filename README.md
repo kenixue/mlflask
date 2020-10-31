@@ -12,5 +12,10 @@ TensorFlow 1.14
 ## Index
 
 - `main.py`: Main application
-- `dataset.py`: Loading the heart failure prediction dataset.
-- `heart.csv`: heart failure prediction https://www.kaggle.com/andrewmvd/heart-failure-clinical-data
+- `main.py`: Loading the heart failure prediction dataset with flask web.
+- `data/heart.csv`: heart failure prediction https://www.kaggle.com/andrewmvd/heart-failure-clinical-data
+- `Dockerfile`
+- `Makefile`
+- `requirements.txt`
+- `app.yaml`
+
