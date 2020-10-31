@@ -21,4 +21,4 @@ class WebsiteUser(HttpUser):
 
 if __name__ == "__main__":
     import os
-    os.system("locust -f locustfile.py")
+    os.system("locust -f locustfile.py -c 200 -r 10 -t 1m")

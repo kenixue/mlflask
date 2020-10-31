@@ -1,6 +1,7 @@
 #push
 from flask import Flask
 from flask import jsonify
+
 import pandas as pd
 import dataset
 import tensorflow as tf
@@ -12,7 +13,9 @@ import plotly as py
 import plotly.graph_objs as go
 
 app = Flask(__name__)
+
 TRAINING_SET_FRACTION = 0.95
+
 
 def map_results(results):
     features = {}
